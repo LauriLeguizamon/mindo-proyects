@@ -1,0 +1,161 @@
+---
+slug: "costa-atlantica"
+company: "Costa Atlántica Turismo"
+logo: "/logos/costa-atlantica.png"
+tags: ["ERP con IA", "Turismo", "Automatización"]
+title: "Costa Atlántica Turismo: ERP con IA para Operadores Turísticos"
+subtitle: "Cómo reemplazamos un sistema legacy por una plataforma moderna que interpreta ventas automáticamente"
+thumbnail: "/images/costa-atlantica/thumbnail.png"
+videoUrl: ""
+industry: "Turismo / Operaciones"
+photos:
+  - "/images/costa-atlantica/thumbnail.png"
+  - "/images/costa-atlantica/2.png"
+  - "/images/costa-atlantica/3.png"
+  - "/images/costa-atlantica/4.png"
+  - "/images/costa-atlantica/5.png"
+results:
+  - metric: "1 mes"
+    label: "MVP en producción"
+  - metric: "4 meses"
+    label: "Desarrollo completo"
+  - metric: "100%"
+    label: "Emails interpretados con IA"
+---
+
+## Costa Atlántica Turismo: ERP Inteligente para Operadores Turísticos
+
+_Cómo una empresa de excursiones pasó de un sistema Windows Forms de los 2000 a una plataforma web con inteligencia artificial_
+
+## El Cliente
+
+Costa Atlántica Turismo es una empresa que opera excursiones turísticas en la Costa Atlántica argentina. Gestionan grupos de turistas, coordinan micros, administran ventas de múltiples vendedores y controlan la caja de cada operación.
+
+Su operación involucra coordinar decenas de variables: pasajeros, hoteles, excursiones, guías, transportistas, zonas de pickup, pagos y rendiciones.
+
+## El Desafío
+
+El equipo trabajaba con un sistema desarrollado hace años en **Windows Forms**: una aplicación de escritorio que había quedado obsoleta.
+
+Los problemas eran múltiples:
+
+- **Interfaz anticuada:** Difícil de aprender para nuevos empleados, lenta de operar
+- **Solo en PC:** Sin acceso desde celular o fuera de la oficina
+- **Carga manual constante:** Cada venta que llegaba por email debía ser transcrita campo por campo al sistema
+- **Sin inteligencia:** No automatizaba ninguna decisión operativa
+- **Mantenimiento imposible:** Cualquier cambio requería intervención técnica costosa
+
+El cuello de botella más crítico era la **carga de ventas**: los vendedores enviaban emails con los datos de pasajeros en formato libre, y el equipo administrativo debía leer cada email y cargar manualmente nombre, hotel, cantidad de personas, excursión, y demás datos. Un proceso repetitivo, lento y propenso a errores.
+
+## La Solución: ERP Web con Inteligencia Artificial
+
+MINDO desarrolló una plataforma de gestión completa, diseñada específicamente para operadores turísticos, con dos capacidades de IA que transforman la operación.
+
+### Transcripción Automática de Ventas desde Email
+
+La funcionalidad estrella del sistema. Los vendedores siguen enviando sus ventas por email como siempre lo hicieron, escribiendo en formato libre:
+
+```
+Hola, te paso la venta:
+Juan Pérez, Hotel Hermitage, 2 adultos y 1 menor
+para la excursión a Miramar del sábado
+Pagó $50.000 en efectivo, debe el resto
+```
+
+El sistema, utilizando **LangChain con herramientas custom**, interpreta automáticamente el contenido y extrae:
+
+- Nombre del pasajero
+- Hotel
+- Cantidad de adultos, menores y bebés
+- Excursión
+- Pagos realizados y deuda pendiente
+- Observaciones
+
+El registro se crea automáticamente en el sistema, listo para revisión. El equipo administrativo pasó de **cargar manualmente cada venta** a simplemente **validar lo que la IA interpretó**.
+
+### Armado Automático de Micros
+
+Cuando una excursión tiene decenas de pasajeros en distintos hoteles, armar los micros manualmente es un rompecabezas: hay que considerar capacidad, zonas de pickup, distancias y prioridades por empresa.
+
+El sistema resuelve esto con un algoritmo inteligente que considera:
+
+- **Distancia geográfica:** Agrupa pasajeros por zona (La Perla, Centro, Aldrey)
+- **Prioridad por empresa:** Respeta reglas de negocio sobre qué grupos van juntos
+- **Capacidad de micros:** Optimiza la asignación sin exceder butacas
+- **Reglas custom:** Configurables según necesidad operativa
+
+Con un clic, el sistema propone una distribución óptima que antes llevaba horas de planificación manual.
+
+## Funcionalidades del ERP
+
+Además de las capacidades de IA, la plataforma incluye módulos completos para toda la operación:
+
+| Módulo          | Funcionalidad                                          |
+| --------------- | ------------------------------------------------------ |
+| **Calendario**  | Vista unificada de excursiones, grupos y tareas        |
+| **Excursiones** | Gestión de salidas, estados y armado de micros         |
+| **Grupos**      | Control de contingentes con fechas y coordinadores     |
+| **Pasajeros**   | Registro completo con sistema de pagos y deudas        |
+| **Emails**      | Bandeja integrada con importación automática           |
+| **Deudas**      | Control de rendiciones de vendedores, guías y empresas |
+| **Caja**        | Analytics de ganancia por micro, gastos e ingresos     |
+
+Todo accesible desde cualquier dispositivo con navegador web.
+
+## Arquitectura de IA
+
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   Email del     │────▶│   LangChain +   │────▶│   Registro      │
+│   Vendedor      │     │   Tools Custom  │     │   Estructurado  │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+                              │
+                              ├── Extrae nombre, hotel, cantidades
+                              ├── Identifica excursión
+                              ├── Parsea pagos y deudas
+                              └── Detecta observaciones
+```
+
+**¿Por qué LangChain con tools custom?**
+
+Los emails de venta no siguen un formato estándar. Cada vendedor escribe diferente, usa abreviaciones distintas, y el orden de la información varía. Un parser tradicional con regex fallaría constantemente.
+
+Usando LangChain con herramientas diseñadas para el dominio, el sistema puede:
+
+- Interpretar lenguaje natural en español argentino
+- Manejar variaciones en cómo se expresan cantidades ("2 adultos", "matrimonio", "familia de 4")
+- Identificar hoteles aunque estén mal escritos
+- Entender contexto ("la del sábado" = próxima excursión del sábado)
+
+## Proceso de Desarrollo
+
+| Fase                | Tiempo  | Entregable                         |
+| ------------------- | ------- | ---------------------------------- |
+| MVP                 | 1 mes   | Sistema funcional con módulos core |
+| Desarrollo completo | 4 meses | Plataforma completa con IA         |
+
+El enfoque fue **iterativo**: lanzar rápido un MVP funcional y agregar módulos según prioridad operativa.
+
+## Beneficios
+
+**Fin del sistema legacy:** De una aplicación Windows Forms a una plataforma web moderna accesible desde cualquier lugar.
+
+**Horas de carga eliminadas:** La transcripción manual de emails se reemplazó por interpretación automática con IA.
+
+**Operación optimizada:** El armado de micros pasó de ser un proceso manual de horas a un clic.
+
+**Escalable:** El sistema crece con el negocio, sin las limitaciones del software anterior.
+
+**Equipo capacitado rápido:** Interfaz intuitiva que nuevos empleados aprenden en días, no semanas.
+
+## Stack Tecnológico
+
+- **Frontend:** React
+- **Backend:** Django
+- **IA:** LangChain + OpenAI con herramientas custom
+- **Base de datos:** PostgreSQL
+- **Infraestructura:** Cloud
+
+---
+
+_¿Tu operación turística sigue atada a sistemas legacy o procesos manuales? Conversemos sobre cómo una plataforma con IA puede transformar tu gestión._
