@@ -73,6 +73,37 @@ Un diferenciador clave del proyecto fue la integración con la infraestructura e
 - Implementación rápida sin migración de datos
 - El equipo administrativo sigue usando las mismas herramientas de siempre
 
+### Ejemplo en Acción
+
+Así funciona el proceso completo de agendamiento desde la perspectiva del paciente:
+
+<StepCarousel steps={[
+  {
+    title: "Validación del paciente",
+    description: "El paciente inicia la conversación y solicita un turno. Por seguridad, el agente de IA solicita el DNI para validar su identidad contra la base de datos antes de continuar con el proceso.",
+    image: "/images/clinica-colon/paso-1.png"
+  },
+  {
+    title: "Selección de especialidad y médico",
+    description: "Una vez validado, el sistema pregunta por la especialidad deseada y muestra el listado completo de profesionales disponibles para que el paciente elija según su preferencia.",
+    image: "/images/clinica-colon/paso-2.png"
+  },
+  {
+    title: "Confirmación del turno",
+    description: "Se ofrece el turno más cercano disponible y se solicita confirmación. Si el paciente prefiere otro día u horario, el agente muestra alternativas. Una vez confirmado, se envían las instrucciones correspondientes.",
+    image: "/images/clinica-colon/paso-3.png"
+  }
+]} />
+
+### Dashboard Informativo
+
+Además del agente de IA, la clínica cuenta con un dashboard en tiempo real que permite visualizar métricas clave de la operación: cantidad de mensajes, conversaciones activas, nuevos contactos y clasificación por intención. Esta herramienta facilita el seguimiento y la toma de decisiones informadas.
+
+<CaseImage
+  src="/images/clinica-colon/dashboard.png"
+  alt="Dashboard informativo de Clínica Colón mostrando métricas de conversaciones y turnos"
+/>
+
 ## Resultados
 
 La implementación transformó la operación del área de cardiología en cuatro semanas:

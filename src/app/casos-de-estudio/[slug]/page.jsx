@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { getAllCaseStudySlugs, getCaseStudyBySlug } from "@/lib/case-studies";
 import { CaseStudyHero } from "@/components/case-studies/CaseStudyHero";
 import { CompanyInfo } from "@/components/case-studies/CompanyInfo";
+import { StepCarousel } from "@/components/case-studies/StepCarousel";
+import { CaseImage } from "@/components/case-studies/CaseImage";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 
@@ -69,6 +71,8 @@ const components = {
   td: (props) => (
     <td className="px-4 py-3 text-muted-foreground" {...props} />
   ),
+  StepCarousel,
+  CaseImage,
 };
 
 const mdxOptions = {
