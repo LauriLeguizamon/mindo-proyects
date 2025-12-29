@@ -1,0 +1,182 @@
+---
+slug: "discovery-partners"
+company: "Discovery Partners"
+logo: "/logos/discover-partners.png"
+tags: ["Power BI", "IA", "Software Custom"]
+title: "Discovery Partners: Alertas Inteligentes desde Power BI"
+subtitle: "Cómo una consultora de BI transformó datos en acciones con alertas automáticas y lenguaje natural"
+thumbnail: "/images/discover-partners/thumbnail.png"
+videoUrl: ""
+industry: "Business Intelligence / Distribución"
+results:
+  - metric: "4 semanas"
+    label: "Desarrollo completo"
+  - metric: "100%"
+    label: "Alertas formateadas con IA"
+  - metric: "Multi-tenant"
+    label: "Múltiples distribuidores"
+---
+
+## Discovery Partners: De Dashboards Pasivos a Alertas Inteligentes
+
+_Cómo una consultora cordobesa de BI convirtió datos de Power BI en alertas accionables que llegan directo al Telegram de los equipos comerciales_
+
+## El Cliente
+
+Discovery Partners es una consultora cordobesa especializada en implementar soluciones de Business Intelligence para distribuidores de consumo masivo. Trabajan con empresas que distribuyen productos de marcas como Arcor, integrando tecnología de datos con Power BI para optimizar sus operaciones comerciales.
+
+Su propuesta de valor es transformar datos en decisiones. Pero tenían un problema.
+
+## El Desafío
+
+Los dashboards de Power BI son poderosos, pero tienen una limitación fundamental: **requieren que alguien los mire**.
+
+Los distribuidores de consumo masivo manejan miles de clientes, cientos de vendedores y decenas de métricas críticas. El equipo comercial debía:
+
+- **Entrar a Power BI todos los días** para revisar qué clientes no compraron
+- **Navegar múltiples reportes** buscando anomalías o alertas
+- **Interpretar los datos** y decidir qué requiere acción
+- **Comunicar manualmente** a vendedores y supervisores
+
+El resultado: información valiosa que llegaba tarde o nunca llegaba. Un cliente que dejó de comprar hace 3 semanas se detectaba recién cuando alguien revisaba el dashboard correcto. Para entonces, el cliente ya estaba comprando a la competencia.
+
+**Los datos estaban. Las decisiones no.**
+
+## La Solución: Alertas Proactivas con Inteligencia Artificial
+
+MINDO desarrolló una plataforma que invierte el flujo: en lugar de que las personas busquen los datos, **los datos buscan a las personas**.
+
+### Alertas Automáticas vía Telegram
+
+El sistema ejecuta queries DAX programados contra Power BI y, cuando detecta condiciones que requieren atención, envía alertas automáticas por Telegram.
+
+**Ejemplo de alerta de "No Compra":**
+
+```
+⚠️ Alerta de No Compra - Prioridad Alta
+
+El cliente Supermercado Los Pinos (ID: 4521) no realiza
+compras desde hace 18 días. Su frecuencia habitual era
+de compras semanales con un ticket promedio de $850.000.
+
+Vendedor asignado: Carlos Méndez
+Última compra: 10/12/2024 - $920.000
+
+Recomendación: Contactar esta semana para identificar
+el motivo de la baja y recuperar el cliente.
+```
+
+Ese mensaje no es un dump de datos. Es **inteligencia artificial interpretando números y generando conclusiones accionables**.
+
+### Formateo Inteligente con IA
+
+La magia está en cómo se transforman los datos crudos de Power BI en mensajes útiles:
+
+1. **Query DAX** consulta Power BI y obtiene datos estructurados
+2. **OpenAI** recibe esos datos junto con contexto del negocio
+3. **El modelo genera** un mensaje en lenguaje natural con conclusiones y recomendaciones
+
+Cada tipo de alerta tiene su propio template de IA, permitiendo personalización total del tono, formato y nivel de detalle según el destinatario.
+
+### Consultas On-Demand
+
+Los usuarios no solo reciben alertas pasivas. Pueden **consultar datos en tiempo real** desde Telegram:
+
+```
+Usuario: /cliente 4521
+
+Bot: 📊 Resumen de Supermercado Los Pinos
+
+Compras últimos 30 días: $2.450.000
+Variación vs mes anterior: -15%
+Productos más comprados: Galletitas, Chocolates, Caramelos
+Días desde última compra: 5
+Estado de cuenta: Al día
+
+El cliente muestra una leve baja en volumen. Revisar
+si hay quiebres de stock en sus productos habituales.
+```
+
+El vendedor obtiene información procesada y con contexto, sin necesidad de abrir Power BI ni saber interpretar dashboards.
+
+### Arquitectura Multi-Tenant
+
+Discovery Partners gestiona múltiples distribuidores. Cada uno es un **tenant independiente** con:
+
+- Su propia conexión a Power BI (datasets, workspaces)
+- Sus propias alertas configuradas
+- Sus propios usuarios y grupos de Telegram
+- Aislamiento completo de datos
+
+Desde un único panel de administración, Discovery Partners puede supervisar y configurar todos sus clientes distribuidores.
+
+## Tipos de Alertas Implementadas
+
+| Alerta             | Trigger                                                     | Acción                                 |
+| ------------------ | ----------------------------------------------------------- | -------------------------------------- |
+| **No Compra**      | Cliente sin compras por X días según su frecuencia habitual | Notifica al vendedor para recuperación |
+| **Efectividad**    | Vendedor por debajo de meta de visitas efectivas            | Alerta al supervisor para coaching     |
+| **Personalizadas** | Query DAX custom + condiciones configurables                | Según necesidad del distribuidor       |
+
+Las alertas son **100% configurables**: el query DAX, las condiciones de disparo, los destinatarios, el horario de envío y el formato del mensaje.
+
+## Arquitectura del Sistema
+
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   Power BI      │────▶│   Plataforma    │────▶│   Telegram      │
+│   (Datos)       │◀────│   MINDO         │     │   (Usuarios)    │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+                              │
+                              ├── Ejecuta queries DAX programados
+                              ├── Detecta condiciones de alerta
+                              ├── Formatea con OpenAI
+                              └── Envía a chats configurados
+```
+
+**Flujo de alerta automática:**
+
+1. Scheduler dispara query DAX según horario configurado
+2. Sistema evalúa resultados contra condiciones de alerta
+3. OpenAI formatea los datos en mensaje accionable
+4. Bot de Telegram envía a los chats correspondientes
+
+**Flujo de consulta on-demand:**
+
+1. Usuario envía comando desde Telegram (ej: `/cliente 4521`)
+2. Sistema valida permisos del chat
+3. Ejecuta query DAX con parámetros
+4. OpenAI formatea respuesta
+5. Bot responde en el chat
+
+## Stack Tecnológico
+
+- **Backend:** Django con arquitectura multi-tenant (schemas PostgreSQL)
+- **Integraciones:** Azure AD + Power BI REST API
+- **Mensajería:** Telegram Bot API
+- **IA:** OpenAI para formateo y conclusiones
+- **Scheduling:** Sistema de programación flexible por día/hora
+
+## Tiempo de Desarrollo
+
+| Fase                | Tiempo        |
+| ------------------- | ------------- |
+| Desarrollo completo | **4 semanas** |
+
+La arquitectura modular permitió entregar una solución completa en tiempo récord, incluyendo multi-tenancy, integración con Power BI, bot de Telegram y formateo con IA.
+
+## Beneficios
+
+**De pasivo a proactivo:** Los datos ahora buscan a las personas, no al revés.
+
+**Información accionable:** No son dumps de números, son mensajes con contexto y recomendaciones.
+
+**Acceso democratizado:** El vendedor en la calle consulta datos desde Telegram sin necesidad de laptop o conocimientos de BI.
+
+**Escalable:** Discovery Partners puede agregar nuevos distribuidores sin fricción gracias al multi-tenancy.
+
+**Personalización total:** Cada distribuidor puede tener sus propias alertas, queries y formatos.
+
+---
+
+_¿Tus dashboards de BI generan datos que nadie mira? Conversemos sobre cómo convertir esa información en alertas que impulsen acciones._

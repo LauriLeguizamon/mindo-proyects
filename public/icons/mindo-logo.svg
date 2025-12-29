@@ -1,0 +1,8 @@
+<svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- MD. Box -->
+  <rect x="0" y="4" width="48" height="32" rx="6" fill="#0f3a4d"/>
+  <text x="24" y="27" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="white" text-anchor="middle">MD.</text>
+
+  <!-- MINDO Text -->
+  <text x="56" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" fill="#0f3a4d" letter-spacing="1">MINDO</text>
+</svg>
